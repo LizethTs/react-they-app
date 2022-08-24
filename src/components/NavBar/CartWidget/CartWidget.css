@@ -1,0 +1,9 @@
+.carrito {
+    background-color:  #80ffaa;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+} 
+.carrito:hover {
+    color: rgb(195, 103, 199);
+}
