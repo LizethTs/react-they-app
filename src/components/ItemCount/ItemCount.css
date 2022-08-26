@@ -1,0 +1,33 @@
+.itemCountContainer {
+    padding: 10px;
+    background-color: #ffe6ff;
+    width: 25%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.itemCountText {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.5rem;
+}
+
+.botonesItemCount {
+    display: flex;
+    justify-content: center;
+}
+
+.btnAgregar {
+    text-align: center;
+}
+
+.btnCounter {
+    background-color: #ebebe0;
+    padding: 9px;
+    margin: 6px;
+    border-radius: 4px;
+    border: none;
+    font-size: 1rem;
+}
+.btnCounter:hover {
+    background-color: #d9b3ff;
+}
