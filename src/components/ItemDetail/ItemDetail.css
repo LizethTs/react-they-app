@@ -1,0 +1,52 @@
+.itemDetailContainer {
+    padding: 0px 30px;
+}
+.itemDetailHeader {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.itemDetailImage {
+    padding: 10px;
+    width:49%;
+    border-right: 2px #b0adad solid;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.itemDetailImage img {
+    width: 200px;
+}
+
+.itemDetailContent {
+    width: 49%;
+    max-width: 400px;
+}
+.itemDetailContent h3 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.itemDetailContent p {
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+.itemDetailDescription {
+    padding: 30px;
+    font-size: 20px;
+    background-color: #ffffff;
+}
+
+.itemDetailDescription h4 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.itemDetailDescription p {
+    color: #666;
+}
