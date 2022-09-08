@@ -1,10 +1,10 @@
 const productos =[
-    { id: "1",  image: "/assets/football.jpg", nombre: "pelota de football", marca: "Next", color: "azul con verde", precio:2300, stock:40 },
-    { id: "2",  image: "/assets/tirador_azul.jpg", nombre: "tirador", marca: "Roggi", color: "celeste", precio:2300, stock:50, description:"Apto para perros a partir de los 7 meses de edad, realizado con una buena calidad en los materiales. Hipoalergenico." },
-    { id: "3",  image: "/assets/tennis.jpg", nombre: "pelota de tennis", marca: "Next", color: "amarrilla", precio:700, stock:25 },
-    { id: "4",  image: "/assets/rojo.jpg", nombre: "mordedor", marca: "Kong", color: "rojo", precio:890, stock:39 },
-    { id: "5",  image: "/assets/hueso_dental.jpg", nombre: "hueso dental", marca: "Roggi", color: "celeste", precio:2500, stock:54 },
-    { id: "6", image: "/assets/hippo.png", nombre: "peluche hippo con soga", marca: "Next", color: "gris", precio:3400, stock:25 }
+    { id: "1",  image: "/assets/football.jpg", nombre: "pelota de football", marca: "Next", color: "azul con verde", precio:2300, stock:40, categoria: "pelota", description: "Pelota de goma dura. Disponible en colores surtidos. Características:  Resistente y duradera Sencilla y adecuada para todo tipo de juegos Medidas: 75 mm" },
+    { id: "2",  image: "/assets/tirador_azul.jpg", nombre: "tirador", marca: "Roggi", color: "celeste", precio:2300, stock:50, categoria: "tirador", description:"Los mordedores mejoran la mordida de tu perro y evitan que muerdan otras cosas que no deben. También ayuda a los cachorros cuando les empiezan a salir los dientes y alivia su dolor.    Además, fortalece su mandíbula y los músculos del cuello y la espalda.El material Caucho natural. Sus características que tiene sabor menta,masajea las encías, el mango al final de la cuerda asegura un agarre seguro e indoloro sea cual sea la intensidad de juego ideal para juegos de lanzar y tirar del juguete." },
+    { id: "3",  image: "/assets/tennis.jpg", nombre: "pelota de tennis", marca: "Next", color: "amarrilla", precio:700, stock:25, categoria: "pelota", description:"Estos juguetes, hechos con paredes de caucho muy gruesas, son lo suficientemente resistentes como para aguantar juegos intensos de buscar y recoger. Lánzalas y mira cómo tu perro lo disfrutá." },
+    { id: "4",  image: "/assets/rojo.jpg", nombre: "mordedor", marca: "Kong", color: "rojo", precio:890, stock:39, categoria: "mordedor", description: "Los KONG son ideales para perros con dientes fuertes a los que les encanta masticar juguetes. Fabricados con KONG Extreme, una fórmula exclusiva de caucho negro completamente natural y muy resistente, estos huesos están diseñados para masticadores experimentados." },
+    { id: "5",  image: "/assets/hueso_dental.jpg", nombre: "hueso dental", marca: "Roggi", color: "celeste", precio:2500, stock:54, categoria: "mordedor", description:"Apto para perros a partir de los 7 meses de edad, realizado con una buena calidad en los materiales. Hipoalergenico."  },
+    { id: "6", image: "/assets/hippo.png", nombre: "peluche hippo con soga", marca: "Next", color: "gris", precio:3400, stock:25, categoria: "tirador", description:"Medida: 32 cm. Juguete de felpa. Relleno de poliéster." }
 ];
 
 export default productos;
