@@ -1,32 +1,41 @@
-import React from 'react';
-import CartWidget from './CartWidget/CartWidget';
-import './NavBar.css';
+import React from "react";
+import CartWidget from "./CartWidget/CartWidget";
+import "./NavBar.css";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
-    return (
-        <div className='navBarContainer'>
-            <div className='navBarBrand'>
-                <h2>THEY</h2>
-            </div>
-           <div className='navBarMenu'>
-                <ul className='navBarItems'>
-                    <li className='navBarItem'>
-                        <a className='navBarLink' href="#">Home</a>
-                    </li>
-                    <li className='navBarItem'>
-                        <a className='navBarLink' href="#">Productos</a>
-                    </li>
-                    <li className='navBarItem'>
-                        <a className='navBarLink' href="#">Novedades</a>
-                    </li>
-                    <li className='navBarItem'>
-                        <a className='navBarLink' href="#">Contacto</a>
-                    </li>
-                    <CartWidget/>
-                </ul>
-           </div>
-        </div>
-    )
-}
+  return (
+    <div className="navBarContainer">
+      <div className="navBarBrand">
+        <h2>THEY</h2>
+      </div>
+      <div className="navBarMenu">
+        <ul className="navBarItems">
+          <li className="navBarItem">
+            <Link to={"/"} className="navBarLink">
+              Home
+            </Link>
+          </li>
+          <li className="navBarItem">
+          <Link to={`/productos/todos`} className="navBarLink">
+              Productos
+            </Link>
+          </li>
+          <li className="navBarItem">
+          <Link to={`/novedades/`}  className="navBarLink">
+              Novedades
+              </Link>
+          </li>
+          <li className="navBarItem">
+          <Link to={`/contacto/`} className="navBarLink">
+              Contacto
+              </Link>
+          </li>
+          <CartWidget />
+        </ul>
+      </div>
+    </div>
+  );
+};
 
 export default NavBar;

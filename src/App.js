@@ -2,14 +2,21 @@ import "./App.css";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from"./components/ItemDetailContainer/ItemDetailContainer";
 import NavBar from "./components/NavBar/NavBar";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import ItemProductContainer from "./components/ItemProductContainer/ItemProductContainer";
 
 function App() {
  
   return (
     <div className="App">
+      <BrowserRouter>
       <NavBar />
-      <ItemListContainer greeting = "Lista de Productos" />
-      <ItemDetailContainer/>
+      <Routes>
+        <Route path= '/' element= {<ItemListContainer greeting = "Lista de Productos" />}></Route>
+        <Route path= '/productos/:id' element= {<ItemProductContainer greeting = "Categorias" />}></Route>
+        <Route path= '/detalles/:id' element= {<ItemDetailContainer/>} ></Route>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
