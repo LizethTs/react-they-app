@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { CartContext } from "../../context/CartProvider";
 
 const ItemDetail = ({ item }) => {
-
+  const { addItem } = useContext(CartContext);
   const [isAdded, setIsAdded] = useState(false);
 
   const navigate = useNavigate();
 
   function onAdd(count) {
+    
     setIsAdded(true);
+    addItem(item,count);
     console.log(`se agregado ${count} productos`);
   }
 
   const goToCart = () => {
     navigate(`/ItemCart`, { replace: true });
   };
-  
+
   return (
     <div className="itemDetailContainer">
       <div className="itemDetailHeader">
