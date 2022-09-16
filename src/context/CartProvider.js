@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 function CartProvider({ children }) {
@@ -6,14 +6,16 @@ function CartProvider({ children }) {
 
   const addItem = (item, cantidad) => {
     console.log("agregando item..");
-    setCart((cart) => [...cart, { item, cantidad }]);
+    if(!isInCart(item.id)){
+      setCart((cart) => [...cart, { item, cantidad }]);
+    }else{
+      console.log("El producto ya existe");
+    }
   };
 
   const removeItem = (itemId) => {
     console.log("removiendo item..");
-    const newCart = cart.filter((item) => {
-      return item.id !== itemId;
-    });
+    const newCart = cart.filter((item) => item.id !== item);
     setCart(newCart);
   };
 
@@ -24,7 +26,7 @@ function CartProvider({ children }) {
 
   const isInCart = (id) => {
     console.log("buscando item..");
-    const newCart = cart.find(item => item.id === id);
+    const newCart = cart.find((item) => item.id === id);
     return newCart ? true : false;
   };
 
