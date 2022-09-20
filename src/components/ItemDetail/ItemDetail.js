@@ -1,24 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../../context/CartProvider";
 
 const ItemDetail = ({ item }) => {
-  const { addItem } = useContext(CartContext);
-  const [isAdded, setIsAdded] = useState(false);
+  const { addItem, isInCart } = useContext(CartContext);
+  // const [isAdded, setIsAdded] = useState(false);
 
   const navigate = useNavigate();
 
   function onAdd(count) {
-    
-    setIsAdded(true);
-    addItem(item,count);
+    // setIsAdded(true);
+    addItem(item, count);
     console.log(`se agregado ${count} productos`);
   }
 
   const goToCart = () => {
-    navigate(`/ItemCart`, { replace: true });
+    navigate("/cart");
   };
 
   return (
@@ -30,20 +29,16 @@ const ItemDetail = ({ item }) => {
         <div className="itemDetailContent">
           <h3> {item.nombre}</h3>
           <p className="itemPrecio">${item.precio}</p>
-          {!isAdded ? (
-            <ItemCount
-              stock={item.stock}
-              initial={1}
-              onAdd={onAdd}
-              isAdded={isAdded}
-            />
-          ) : (
+          {/* {!isAdded ? ( */}
+          {isInCart(item.id) ? (
             <>
-              <p className="itemSuccess">Se agregado exitosamente</p>
+              <p className="itemSuccess">El producto se encuentra en tu carrito</p>
               <button className="btnCounter" onClick={() => goToCart()}>
-                finaliza tu compra
+                Finaliza tu compra
               </button>
             </>
+          ) : (
+            <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
           )}
         </div>
       </div>
