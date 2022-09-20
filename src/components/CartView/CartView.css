@@ -1,0 +1,87 @@
+.ContainerCartView {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.titleCartView {
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgb(195, 103, 199);
+    padding-top: 40px;
+    padding-left: 30px;
+}
+
+.itemContainerCartView {
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    padding: 20px;
+}
+
+.itemCartView {
+    list-style: none;
+    font-size: 1.2rem;
+    padding-top: 15px;
+}
+
+.itemImageCartView {
+    width:8%;
+    text-align: center;
+}
+
+.btnRemoveCartView {
+    background-color: #ebebe0;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    height: 30px;
+}
+
+.btnRemoveCartView:hover {
+    background-color: rgb(252, 163, 255);
+}
+
+.totalCartView {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 2px solid #a1a1a1;
+    width: 72%;
+}
+
+.tituloTotalCartView{
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.btnConfirmarCartView {
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background-color: #aaf3c2;
+}
+
+.emptyCartContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptyCart {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.btnVolverCartView {
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background-color: #aaf3c2;
+}

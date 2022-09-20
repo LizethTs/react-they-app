@@ -1,10 +1,16 @@
 import React from "react";
 import "./CartWidget.css";
+import { useNavigate } from "react-router-dom";
 
 const CartWidget = () => {
+  const navigate = useNavigate();
+
+  const goToCartView = () => {
+    navigate("/cart");
+  };
   return (
     <div className="cartWidgetContainer">
-      <button className="carrito">
+      <button className="carrito" onClick={() => goToCartView()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
