@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./ItemListContainer.css";
-import productos from "../../productos";
 import ItemList from "../ItemList/ItemList";
+import { collection, getDocs } from "firebase/firestore";
+import { FirestoreDb } from "../../firebase/firebaseConfig";
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -9,16 +10,19 @@ const ItemListContainer = ({ greeting }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getProductos = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(productos);
-      }, 2000);
-    });
-
-    getProductos
-      .then((response) => setItems(response))
-      .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
+    const getProducts = async () => {
+      setLoading(true);
+      try {
+        const productsCollection = collection(FirestoreDb, "productos");
+        const storeSnapshot = await getDocs(productsCollection);
+        const storeList = storeSnapshot.docs.map((doc) => doc.data());
+        setItems(storeList);
+        setLoading(false);
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+    getProducts();
   }, []);
 
   return (

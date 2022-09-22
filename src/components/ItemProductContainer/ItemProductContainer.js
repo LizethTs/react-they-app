@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./ItemProductContainer.css";
-import productos from "../../productos";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where  } from "firebase/firestore";
+import { FirestoreDb } from "../../firebase/firebaseConfig";
 
 const ItemProductContainer = ({ greeting }) => {
   const { id } = useParams();
@@ -17,25 +18,26 @@ const ItemProductContainer = ({ greeting }) => {
   };
 
   useEffect(() => {
-    const getProductos = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(productos);
-      }, 1000);
-    });
+    const getProducts = async () => {
+      try {
+        const productsCollection =
+          category === "todos"
+            ? collection(FirestoreDb, "productos")
+            : query(
+                collection(FirestoreDb, "productos"),
+                where("categoria", "==", `${category}`)
+              );
 
-    getProductos
-      .then((response) => {
-        if (category === "todos") {
-          setItems(response);
-        } else {
-          const itemsFiltrados = response.filter(
-            (producto) => producto.categoria === category
-          );
-          setItems(itemsFiltrados);
-        }
-      })
-      .catch((err) => console.log(err))
-      .finally(() => setLoading(false));
+        const storeSnapshot = await getDocs(productsCollection);
+
+        const storeList = storeSnapshot.docs.map((doc) => doc.data());
+        setItems(storeList);
+        setLoading(false)
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+    getProducts();
   }, [category]);
   return (
     <div className="itemProductContainer">

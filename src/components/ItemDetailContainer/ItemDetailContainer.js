@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import productos from "../../productos";
 import "./ItemDetailContainer.css";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { FirestoreDb } from "../../firebase/firebaseConfig";
+
 
 const ItemDetailContainer = () => {
   
@@ -10,17 +12,22 @@ const ItemDetailContainer = () => {
 
   const [item, setItem] = useState([]);
 
-  const getProducto = () =>
-    new Promise((resolve, reject) => {
-      setTimeout(
-        () => resolve(productos.find((producto) => producto.id === id)),
-        2000
-      );
-    });
-
   useEffect(() => {
-    getProducto().then((response) => setItem(response));
-  }, []);
+    const getProducts = async () => {
+      try {
+        const productsCollection = query(
+          collection(FirestoreDb, "productos"),
+          where("id", "==", `${id}`)
+        );
+        const storeSnapshot = await getDocs(productsCollection);
+        const storeList = storeSnapshot.docs.map((doc) => doc.data());
+        setItem(storeList[0]);
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+    getProducts();
+  }, [id]);
 
   return (
     <>
