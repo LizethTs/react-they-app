@@ -8,6 +8,7 @@
     color: rgb(195, 103, 199);
     padding-top: 40px;
     padding-left: 30px;
+    margin-bottom: 40px;
 }
 
 .itemContainerCartView {
@@ -77,11 +78,31 @@
     margin-bottom: 30px;
 }
 
+.btncontainerCartView {
+    display: flex;
+    justify-content: space-around;
+}
+
 .btnVolverCartView {
     padding: 20px;
-    margin-top: 20px;
+    margin: 20px;
     border-radius: 5px;
     border: none;
     font-size: 1rem;
     background-color: #aaf3c2;
+}
+
+.ordenNumberTitle {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #8956e2;
+    text-decoration: underline;
+}
+
+.orderNumber {
+    font-size: 1.6rem;
+    border: 2px solid #aaf3c2;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
 }
